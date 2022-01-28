@@ -77,7 +77,7 @@ open class MB_Placeholder_View : UIView {
 		
 		didSet {
 			
-			updateStyle()
+			style = .error
 		}
 	}
 	
@@ -96,7 +96,7 @@ open class MB_Placeholder_View : UIView {
 	}()
 	public lazy var stackView:UIStackView = {
 		
-		let stackView:UIStackView = .init(arrangedSubviews: [imageView,activityIndicatorView,titleLabel,contentLabel,primaryButton,secondaryButton])
+		let stackView:UIStackView = .init(arrangedSubviews: [imageView,activityIndicatorView,titleLabel,contentLabel,button])
 		stackView.axis = .vertical
 		stackView.distribution = .fill
 		stackView.spacing = UI.Margins
@@ -114,7 +114,7 @@ open class MB_Placeholder_View : UIView {
 		imageView.contentMode = .scaleAspectFit
 		return imageView
 	}()
-	private lazy var activityIndicatorView:UIActivityIndicatorView = {
+	public lazy var activityIndicatorView:UIActivityIndicatorView = {
 		
 		let activityIndicatorView:UIActivityIndicatorView = .init(style: .medium)
 		activityIndicatorView.hidesWhenStopped = true
@@ -139,7 +139,7 @@ open class MB_Placeholder_View : UIView {
 		label.numberOfLines = 0
 		return label
 	}()
-	public lazy var primaryButton:MB_Button = .init()
+	public lazy var button:MB_Button = .init()
 	
 	public override init(frame: CGRect) {
 		
@@ -171,7 +171,7 @@ open class MB_Placeholder_View : UIView {
 			imageView.isHidden = true
 			titleLabel.isHidden = true
 			activityIndicatorView.isHidden = false
-			primaryButton.isHidden = true
+			button.isHidden = true
 		}
 		else if style == .error {
 			
@@ -179,7 +179,7 @@ open class MB_Placeholder_View : UIView {
 		}
 		else if style == .empty {
 			
-			primaryButton.isHidden = true
+			button.isHidden = true
 		}
 	}
 }
