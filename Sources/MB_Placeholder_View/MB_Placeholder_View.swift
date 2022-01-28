@@ -303,14 +303,25 @@ open class MB_Placeholder_View : UIView {
 		}
 	}
 	/**
-	 Used to toggle state of primaryButton
+	 Used to toggle enable state of primaryButton
 	 - Note: Default value is `true`
 	 */
-	public var isPrimaryButtonEnable:Bool = true {
+	public var isPrimaryButtonEnabled:Bool = true {
 		
 		didSet {
 			
-			primaryButton.isEnabled = isPrimaryButtonEnable
+			primaryButton.isEnabled = isPrimaryButtonEnabled
+		}
+	}
+	/**
+	 Used to toggle loading state of primaryButton
+	 - Note: Default value is `false`
+	 */
+	public var isPrimaryButtonLoading:Bool = false {
+		
+		didSet {
+			
+			primaryButton.isLoading = isPrimaryButtonLoading
 		}
 	}
 	/**
@@ -367,14 +378,25 @@ open class MB_Placeholder_View : UIView {
 		}
 	}
 	/**
-	 Used to toggle state of secondaryButton
+	 Used to toggle enabled state of secondaryButton
 	 - Note: Default value is `true`
 	 */
-	public var isSecondaryButtonEnable:Bool = true {
+	public var isSecondaryButtonEnabled:Bool = true {
 		
 		didSet {
 			
-			secondaryButton.isEnabled = isSecondaryButtonEnable
+			secondaryButton.isEnabled = isSecondaryButtonEnabled
+		}
+	}
+	/**
+	 Used to toggle loading state of secondaryButton
+	 - Note: Default value is `false`
+	 */
+	public var isSecondaryButtonLoading:Bool = false {
+		
+		didSet {
+			
+			secondaryButton.isLoading = isSecondaryButtonLoading
 		}
 	}
 	/**
@@ -531,7 +553,8 @@ open class MB_Placeholder_View : UIView {
 		let button:MB_Button = .init(style: primaryButtonStyle, title: primaryButtonTitle, image: primaryButtonImage, andCompletion: primaryButtonAction)
 		button.tintColor = primaryButtonTintColor
 		button.isHidden = primaryButtonTitle?.isEmpty ?? true && primaryButtonImage == nil
-		button.isEnabled = isPrimaryButtonEnable
+		button.isEnabled = isPrimaryButtonEnabled
+		button.isLoading = isPrimaryButtonLoading
 		return button
 	}()
 	private lazy var secondaryButton:MB_Button = {
@@ -539,7 +562,8 @@ open class MB_Placeholder_View : UIView {
 		let button:MB_Button = .init(style: secondaryButtonStyle, title: secondaryButtonTitle, image: secondaryButtonImage, andCompletion: secondaryButtonAction)
 		button.tintColor = secondaryButtonTintColor
 		button.isHidden = secondaryButtonTitle?.isEmpty ?? true && secondaryButtonImage == nil
-		button.isEnabled = isSecondaryButtonEnable
+		button.isEnabled = isSecondaryButtonEnabled
+		button.isLoading = isSecondaryButtonLoading
 		return button
 	}()
 	
