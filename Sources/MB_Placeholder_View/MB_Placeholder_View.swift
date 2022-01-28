@@ -456,10 +456,17 @@ open class MB_Placeholder_View : UIView {
 			
 			make.edges.equalToSuperview()
 		}
+		
+		setUp()
 	}
 	
 	required public init?(coder: NSCoder) {
 		
 		fatalError("init(coder:) has not been implemented")
+	}
+	
+	public func setUp() {
+		
+		
 	}
 }
