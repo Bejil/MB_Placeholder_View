@@ -403,6 +403,13 @@ open class MB_Placeholder_View : UIView {
 		
 		stackView.addArrangedSubview(view)
 	}
+	/**
+	 Used to insert a view at a specific index
+	 */
+	public func insert(_ view:UIView, at index:Int) {
+		
+		stackView.insertArrangedSubview(view, at: index)
+	}
 	
 	//MARK: - States
 	/**
