@@ -303,6 +303,17 @@ open class MB_Placeholder_View : UIView {
 		}
 	}
 	/**
+	 Used to toggle state of primaryButton
+	 - Note: Default value is `true`
+	 */
+	public var isPrimaryButtonEnable:Bool = true {
+		
+		didSet {
+			
+			primaryButton.isEnabled = isPrimaryButtonEnable
+		}
+	}
+	/**
 	 Used to set the style of the secondary button
 	 - Note: Default value is `.transparent`
 	 */
@@ -353,6 +364,17 @@ open class MB_Placeholder_View : UIView {
 		didSet {
 			
 			secondaryButton.action = secondaryButtonAction
+		}
+	}
+	/**
+	 Used to toggle state of secondaryButton
+	 - Note: Default value is `true`
+	 */
+	public var isSecondaryButtonEnable:Bool = true {
+		
+		didSet {
+			
+			secondaryButton.isEnabled = isSecondaryButtonEnable
 		}
 	}
 	/**
@@ -509,6 +531,7 @@ open class MB_Placeholder_View : UIView {
 		let button:MB_Button = .init(style: primaryButtonStyle, title: primaryButtonTitle, image: primaryButtonImage, andCompletion: primaryButtonAction)
 		button.tintColor = primaryButtonTintColor
 		button.isHidden = primaryButtonTitle?.isEmpty ?? true && primaryButtonImage == nil
+		button.isEnabled = isPrimaryButtonEnable
 		return button
 	}()
 	private lazy var secondaryButton:MB_Button = {
@@ -516,6 +539,7 @@ open class MB_Placeholder_View : UIView {
 		let button:MB_Button = .init(style: secondaryButtonStyle, title: secondaryButtonTitle, image: secondaryButtonImage, andCompletion: secondaryButtonAction)
 		button.tintColor = secondaryButtonTintColor
 		button.isHidden = secondaryButtonTitle?.isEmpty ?? true && secondaryButtonImage == nil
+		button.isEnabled = isSecondaryButtonEnable
 		return button
 	}()
 	
