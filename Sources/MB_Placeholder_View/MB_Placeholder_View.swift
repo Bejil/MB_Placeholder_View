@@ -74,6 +74,24 @@ open class MB_Placeholder_View : UIView {
 			stackView.spacing = spacing
 		}
 	}
+	/**
+	 Used to insert custom spacing after a specific view
+	 */
+	public func set(spacing:CGFloat, after view:UIView) {
+		
+		stackView.setCustomSpacing(spacing, after: view)
+	}
+	/**
+	 Used to insert custom spacing before a specific view
+	 */
+	public func set(spacing:CGFloat, before view:UIView) {
+		
+		if let index = stackView.arrangedSubviews.firstIndex(of: view), index != 0 {
+			
+			let view = stackView.arrangedSubviews[index-1]
+			stackView.setCustomSpacing(spacing, after: view)
+		}
+	}
 	
 	//MARK: - UI
 	/**
@@ -336,6 +354,54 @@ open class MB_Placeholder_View : UIView {
 			
 			secondaryButton.action = secondaryButtonAction
 		}
+	}
+	/**
+	 Used to insert a view after another
+	 */
+	public func insert(_ view:UIView, after afterView:UIView? = nil) {
+		
+		if let afterView = afterView {
+			
+			if let index = stackView.arrangedSubviews.firstIndex(of: afterView) {
+			
+				stackView.insertArrangedSubview(view, at: index+1)
+			}
+		}
+		else{
+			
+			stackView.addArrangedSubview(view)
+		}
+	}
+	/**
+	 Used to insert a view before another
+	 */
+	public func insert(_ view:UIView, before beforeView:UIView? = nil) {
+		
+		if let beforeView = beforeView {
+			
+			if let index = stackView.arrangedSubviews.firstIndex(of: beforeView), index != 0 {
+			
+				stackView.insertArrangedSubview(view, at: index-1)
+			}
+		}
+		else{
+			
+			stackView.addArrangedSubview(view)
+		}
+	}
+	/**
+	 Used to insert a view at first
+	 */
+	public func prepend(_ view:UIView) {
+		
+		stackView.insertArrangedSubview(view, at: 0)
+	}
+	/**
+	 Used to append a view
+	 */
+	public func append(_ view:UIView) {
+		
+		stackView.addArrangedSubview(view)
 	}
 	
 	//MARK: - States
