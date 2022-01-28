@@ -352,9 +352,9 @@ open class MB_Placeholder_View : UIView {
 	}
 	/**
 	 Used to define of the content of the placeholder must be centered if smaller
-	 - Note: Default value is `false`
+	 - Note: Default value is `true`
 	 */
-	public var isCentered:Bool = false {
+	public var isCentered:Bool = true {
 		
 		didSet {
 			
