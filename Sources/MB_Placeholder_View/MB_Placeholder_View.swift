@@ -465,7 +465,7 @@ open class MB_Placeholder_View : UIView {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	public func setUp() {
+	open func setUp() {
 		
 		
 	}
