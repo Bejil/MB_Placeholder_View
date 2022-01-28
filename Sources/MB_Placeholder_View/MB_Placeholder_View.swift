@@ -384,6 +384,12 @@ open class MB_Placeholder_View : UIView {
 		stackView.axis = .vertical
 		stackView.distribution = .fill
 		stackView.spacing = spacing
+		
+		imageView.snp.makeConstraints { (make) in
+			
+			make.height.equalTo(stackView.snp.width).multipliedBy(imageHeightRatio)
+		}
+		
 		return stackView
 	}()
 	private lazy var imageView:UIImageView = {
@@ -392,12 +398,6 @@ open class MB_Placeholder_View : UIView {
 		imageView.contentMode = .scaleAspectFit
 		imageView.tintColor = imageColor
 		imageView.isHidden = image == nil
-		
-		imageView.snp.makeConstraints { (make) in
-			
-			make.height.equalTo(stackView.snp.width).multipliedBy(imageHeightRatio)
-		}
-		
 		return imageView
 	}()
 	private lazy var activityIndicatorView:UIActivityIndicatorView = {
