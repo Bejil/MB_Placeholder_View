@@ -66,6 +66,13 @@ open class MB_Placeholder_View : UIView {
 		}
 	}
 	
+	public var isCentered:Bool = true {
+		
+		didSet {
+			
+			scrollView.isCentered = isCentered
+		}
+	}
 	public var style:MB_Placeholder_View_Style? {
 		
 		didSet {
