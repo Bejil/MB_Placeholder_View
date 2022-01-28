@@ -130,7 +130,7 @@ open class MB_Placeholder_View : UIView {
 		label.numberOfLines = 0
 		return label
 	}()
-	private lazy var contentLabel:UILabel = {
+	public lazy var contentLabel:UILabel = {
 		
 		let label:UILabel = .init()
 		label.font = .systemFont(ofSize: Fonts.Size.Default)
@@ -140,7 +140,6 @@ open class MB_Placeholder_View : UIView {
 		return label
 	}()
 	public lazy var primaryButton:MB_Button = .init()
-	private lazy var secondaryButton:MB_Button = .init(style: .transparent)
 	
 	public override init(frame: CGRect) {
 		
@@ -173,17 +172,14 @@ open class MB_Placeholder_View : UIView {
 			titleLabel.isHidden = true
 			activityIndicatorView.isHidden = false
 			primaryButton.isHidden = true
-			secondaryButton.isHidden = true
 		}
 		else if style == .error {
 			
 			contentLabel.text = error?.localizedDescription
-			secondaryButton.isHidden = true
 		}
 		else if style == .empty {
 			
 			primaryButton.isHidden = true
-			secondaryButton.isHidden = true
 		}
 	}
 }
